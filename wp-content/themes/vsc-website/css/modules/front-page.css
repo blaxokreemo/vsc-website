@@ -1,0 +1,96 @@
+body {
+    background-color: var(--secondary-color);
+}
+
+.tour-dates {
+    display: flex;
+    flex-basis: 500px;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.performance-container {
+    width: clamp(300px, 100%, 800px);
+}
+
+.performance-entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--performance-color);
+}
+
+.performance-entry:hover {
+    background-color: var(--performance-hover-color);
+    /* transition: background-color 0.1s ease-in-out; */
+}
+
+@media screen and (max-width: 600px) {
+    .performance-entry {
+        flex-direction: column;
+    }
+}
+
+.performance-date {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+    .performance-date {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.date, .venue {
+    font-size: clamp(1rem, calc(0.5rem + 1vw), 2rem);
+    font-weight: bold;
+}
+
+.time {
+    font-size: clamp(1rem, calc(0.5rem + 0.9vw), 1.75rem);
+    font-weight: normal;
+}
+
+
+
+
+.poster-image {
+    width: clamp(200px, 20vw, 400px);
+}
+
+.spacer {
+    height: 50px;
+}
+
+.video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 0 50px 0;
+    margin: 0 0 50px 0;
+}
+
+.video-box {
+    height: 100%;
+}
+
+/* iframe {
+    width: 100%;
+    height: clamp(300px, 30vw, 600px);
+} */
+
+

@@ -1,0 +1,54 @@
+/* Utility Classes */
+/* This file contains utility classes for layout and spacing. */
+
+.container {
+    /* max-width: 1300px; */
+    margin: 0 auto;
+    padding: 0 16px;
+    position: relative;
+}
+
+.content-narrow {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 16px;
+    position: relative;
+}
+
+.full-page-height {
+    height: 100vh;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0px;
+}
+
+.container-no-flex {
+    padding: 20px;
+}
+
+.content-box {
+    background-color: var(--box-color);
+    border-radius: 8px;
+    border: 3px solid var(--primary-color);
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+
+
+
