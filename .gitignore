@@ -198,3 +198,5 @@ dist
 *.vsix
 
 local-xdebuginfo.php
+docker-compose.yml
+wp-content/plugins/akismet/
