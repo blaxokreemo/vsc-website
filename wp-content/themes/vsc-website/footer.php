@@ -1,3 +1,5 @@
+</div>
+
 <footer class="site-footer">
 
 <div class="content-box footer-button">
@@ -7,6 +9,6 @@
 
 </footer>
 <?php wp_footer(); ?>
-</div>
+
 </body>
 </html>

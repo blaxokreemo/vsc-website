@@ -4,8 +4,8 @@ header {
     align-items: center;
     background-color: var(--primary-color);
     height: clamp(100px, 25vh, 300px);
-    background-size: 100%;
-    background-position: center 20%;
+    background-size: 125%;
+    background-position: 65% 20%;
 }
 
 .site-title-text {

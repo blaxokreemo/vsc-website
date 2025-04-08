@@ -1,4 +1,7 @@
 .site-footer {
+    position: fixed;
+    bottom: 0;
+    
     background-color: var(--primary-color);
     height: 100px;
     width: 100%;
