@@ -69,10 +69,6 @@ body {
     width: clamp(200px, 20vw, 400px);
 }
 
-.spacer {
-    height: 50px;
-}
-
 .video {
     display: flex;
     flex-direction: column;
@@ -80,12 +76,13 @@ body {
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 0 0 50px 0;
-    margin: 0 0 50px 0;
 }
 
 .video-box {
-    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;  
 }
 
 /* iframe {
