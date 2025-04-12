@@ -1,11 +1,13 @@
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color);
     height: clamp(100px, 25vh, 300px);
     background-size: 125%;
     background-position: 65% 20%;
+
+    padding: 0 20px;
 }
 
 .site-title-text {
@@ -30,4 +32,9 @@ nav ul {
     justify-content: space-between;
     list-style: none;
     gap: 20px;
+}
+
+.logo-image {
+    height: clamp(80px, 20vh, 250px);
+    margin-right: 20px;
 }
