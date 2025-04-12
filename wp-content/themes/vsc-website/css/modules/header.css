@@ -10,6 +10,19 @@ header {
     padding: 0 20px;
 }
 
+.menu {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.menu-bars {
+    font-size: 3rem;
+}
+
 .site-title-text {
     font-size: clamp(1.5rem, calc(1.25rem + 1.75vw), 5rem);
     text-align: center;

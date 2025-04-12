@@ -25,6 +25,18 @@ p {
     --hover-color: #3373dd;
 }
 
+.fa-solid.primary-color {
+    color: var(--primary-color);
+}
+
+.fa-solid.secondary-color {
+    color: var(--secondary-color);
+}
+
+.fa-solid.tertiary-color {
+    color: var(--tertiary-color);
+}
+
 html, body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
