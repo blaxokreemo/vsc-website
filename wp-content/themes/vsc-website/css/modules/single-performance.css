@@ -2,6 +2,12 @@
     flex-basis: 50%;
 }
 
+@media screen and (max-width: 600px) {
+    .single-performance-box {
+        flex-basis: 100%;
+    }
+}
+
 .single-performance-image {
     height: 300px;
     width: 100%;
