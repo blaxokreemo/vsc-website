@@ -3,7 +3,7 @@
 <footer class="site-footer">
 
 <div class="content-box footer-button">
-    <h1 class="contact-us">Contact Us</h1>
+    <a href="mailto:vermontsuitcasecompany@gmail.com"><h1 class="contact-us">Contact Us</h1></a>
 </div>
 
 

@@ -26,6 +26,7 @@ header {
     border-radius: 30px;
     border: 3px solid var(--secondary-color);
     padding: 20px;
+    visibility: hidden;
 }
 
 .menu-bars {
@@ -38,6 +39,7 @@ header {
         background-color: transparent;
         border: none;
         padding: 0;
+        display: none;
     }
     .menu-bars {
         font-size: 2rem;
