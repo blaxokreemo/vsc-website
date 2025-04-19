@@ -43,8 +43,7 @@ html, body {
 
 body {
     color: var(--text-color);
-
-    height: 100%;
+    margin-bottom: 500px;
 }
 
 a {

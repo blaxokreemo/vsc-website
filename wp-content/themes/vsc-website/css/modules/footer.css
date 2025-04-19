@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 0;
     
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     height: 80px;
     width: 100%;
     display: flex;
@@ -11,7 +11,18 @@
 }
 
 .content-box.footer-button {
-    border: 3px solid var(--secondary-color);
+    border: 3px solid var(--hover-color);
+    font-size: 0.5rem;
+}
+
+.social {
+    color: var(--hover-color);
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+.social:hover {
+    color: var(--tertiary-color);
 }
 
 
