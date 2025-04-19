@@ -10,7 +10,7 @@
         <img src="<?php echo get_theme_file_uri('images/logo.png') ?>" alt="Vermont Suitcase Company Logo" class="logo-image">
     </div>
     <h1 class="site-title-text"><a href="<?php echo site_url(); ?>">Vermont Suitcase Company</a></h1>
-    <div class="menu"><i class="fa-solid fa-bars tertiary-color menu-bars"></i></div>
+    <div class="menu"><i class="fa-solid fa-bars secondary-color menu-bars"></i></div>
     <!-- <nav class="site-nav">
         <ul>
             <li><a href="<?php echo site_url('x') ?>">About</a></li>
