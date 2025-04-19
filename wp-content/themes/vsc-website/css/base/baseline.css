@@ -43,6 +43,9 @@ html, body {
 
 body {
     color: var(--text-color);
+}
+
+body.home {
     margin-bottom: 500px;
 }
 

@@ -19,4 +19,13 @@
         </ul>
     </nav> -->
 </header>
-<body <?php body_class(); ?>>
+<body
+    <?php
+        if (is_front_page()) {
+            echo 'class="home"';
+        } else {
+            echo 'class="page"';
+        }
+        
+        body_class();
+    ?>>
