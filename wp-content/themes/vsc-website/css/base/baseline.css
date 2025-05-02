@@ -44,7 +44,7 @@ html, body {
 }
 
 body {
-    background-color: var(--poster-background);
+    background-color: var(--tertiary-color);
     color: black;
 }
 
