@@ -2,7 +2,6 @@
 /* This file contains utility classes for layout and spacing. */
 
 .container {
-    /* max-width: 1300px; */
     margin: 0 auto;
     padding: 0 16px;
     position: relative;
@@ -10,7 +9,6 @@
 
 .content-narrow {
     max-width: 80%;
-    margin: 0 auto 11%;
     position: relative;
 }
 
@@ -21,11 +19,9 @@
     
 }
 
-.full-page-height {
-    height: 100vh;
-}
-
 .container-flex {
+    height: auto;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
