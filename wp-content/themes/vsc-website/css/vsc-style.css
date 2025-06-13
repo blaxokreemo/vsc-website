@@ -4,6 +4,7 @@
 @import "modules/front-page.css";
 @import "modules/footer.css";
 @import "modules/single-performance.css";
+@import "modules/single-person.css";
 
 @font-face {
     font-family: 'Carton Six Regular';
