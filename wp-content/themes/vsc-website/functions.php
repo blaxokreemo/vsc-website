@@ -21,7 +21,33 @@ function vsc_post_types() {
             'all_items' => 'All Performances',
             'singular_name' => 'Performance'
         ),
-        'menu-icon' => 'dashicons-calendar'
+        'menu_icon' => 'dashicons-calendar'
+    ));
+    
+    register_post_type('person', array(
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'labels' => array(
+            'name' => 'People',
+            'add_new_item' => 'Add New Person',
+            'edit_item' => 'Edit Person',
+            'all_items' => 'All People',
+            'singular_name' => 'Person'
+        ),
+        'menu_icon' => 'dashicons-groups'
+    ));
+
+    register_post_type('show', array(
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'labels' => array(
+            'name' => 'Shows',
+            'add_new_item' => 'Add New Show',
+            'edit_item' => 'Edit Show',
+            'all_items' => 'All Shows',
+            'singular_name' => 'Show'
+        ),
+        'menu_icon' => 'dashicons-buddicons-groups'
     ));
 }
 
