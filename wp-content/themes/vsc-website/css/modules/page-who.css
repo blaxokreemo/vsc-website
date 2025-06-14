@@ -1,0 +1,42 @@
+.person-item {
+    display: flex;
+}
+
+.person-image {
+    border-radius: 8px;
+}
+
+.people-header {
+    background-color: var(--secondary-color);
+
+}
+
+.page-links-header {
+    color: var(--secondary-color);
+    padding: 8px;
+
+    font-size: clamp(1rem, calc(1.5rem + 1vw), 3rem);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.page-links {
+    padding: 0;
+    flex-basis: 25%;
+}
+
+.links-box {
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 8px;
+}
+
+.links-list {
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0 8px 8px 8px;
+}
+
+.links-list li {
+    font-family: 'Carton Six Regular';
+    font-size: clamp(1rem, calc(1rem + 1vw), 3rem)
+}

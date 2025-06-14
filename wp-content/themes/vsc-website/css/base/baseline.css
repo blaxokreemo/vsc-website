@@ -59,3 +59,7 @@ a:hover {
     color: var(--hover-color);
 }
 
+ul {
+    list-style: none;
+}
+

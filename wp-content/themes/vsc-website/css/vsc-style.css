@@ -3,8 +3,10 @@
 @import "modules/header.css";
 @import "modules/front-page.css";
 @import "modules/footer.css";
+@import "modules/page.css";
 @import "modules/single-performance.css";
 @import "modules/single-person.css";
+@import "modules/page-who.css";
 
 @font-face {
     font-family: 'Carton Six Regular';
