@@ -32,6 +32,16 @@
     padding: 20px 0px 80px 0px;
 }
 
+.container-flex.room-for-menu {
+    margin: 20px 20px 20px 250px;
+}
+
+@media screen and (max-width: 600px) {
+    .container-flex.room-for-menu {
+        margin: 20px;
+    }
+}
+
 .container-no-flex {
     padding: 20px;
 }
@@ -46,6 +56,10 @@
     text-align: center;
 }
 
+.box-header {
+    background-color: var(--secondary-color);
+}
+
 .header-row {
     display: flex;
     justify-content: space-between;
@@ -53,6 +67,9 @@
     padding: 16px 0;
 }
 
+.float-left {
+    float: left;
+}
 
 
 

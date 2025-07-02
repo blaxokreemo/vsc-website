@@ -67,7 +67,7 @@ header {
 }
 
 nav {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, calc(1rem + 1.25vw), 4rem);
 }
 
 nav ul {
@@ -75,6 +75,16 @@ nav ul {
     justify-content: space-between;
     list-style: none;
     gap: 20px;
+}
+
+nav li {
+    color: black;
+    font-family: 'Carton Six Regular', 'Gill Sans';
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    border: 3px black solid;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
 
 

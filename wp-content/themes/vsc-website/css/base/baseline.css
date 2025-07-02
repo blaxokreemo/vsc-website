@@ -63,3 +63,12 @@ ul {
     list-style: none;
 }
 
+/* Styles to edit Wordpress blocks */
+
+div.wp-block-cover__inner-container p {
+    border-radius: 8px;
+}
+
+
+
+
