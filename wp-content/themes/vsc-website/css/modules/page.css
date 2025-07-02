@@ -13,5 +13,5 @@
 
 .the-content p {
     text-align: center;
-    font-size: clamp(1rem, calc(1.25rem + 1.75vw), 3rem);
+    font-size: clamp(1rem, calc(1.25rem + 1.75vw), 2rem);
 }
