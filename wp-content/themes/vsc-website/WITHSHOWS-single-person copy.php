@@ -23,7 +23,21 @@
         <div class="single-person-description">
             <?php the_content(); ?>
         </div>
-    
+        <div class="single-person-shows">
+            <?php
+            $shows = get_field('shows');
+            if ($shows) {
+                echo '<h2>Shows:</h2>';
+                echo '<ul class="single-person-shows-list">';
+                foreach ($shows as $show) {
+                    echo '<li><a href="' . get_permalink($show->ID) . '">' . get_the_title($show->ID) . '</a></li>';
+                }
+                echo '</ul>';
+            } else {
+                echo '<p>No shows associated with this person.</p>';
+            }
+            ?>
+        </div>
     </div>
 
 </div>

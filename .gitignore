@@ -17,6 +17,9 @@
 /wp-*.php
 /xmlrpc.php
 
+# Images
+/wp-content/themes/vsc-website/images/
+
 # Configuration
 wp-config.php
 

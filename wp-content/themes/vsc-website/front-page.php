@@ -3,80 +3,24 @@
 <div class="content-narrow container-flex full-page-height">
   <div class="tour-dates">
     <div class="content-box tour-header">
-      <h1 class="tour-header">Summer 2025 Tour Dates</h1>
+      <h1 class="tour-header">Our Film at Vermont Film Festival!</h1>
     </div>
     <div class="content-box performance-container">
-        <h1 class="tour-title">The Duke Is Dead</h1>
-        <h2 class="tour-title">A Vermont Suitcase Mystery</h2>
-        <div class="performance-table">
-          <?php
-          $today = date('Ymd');
-          $homepagePerformances = new WP_Query(
-            array(
-              'posts_per_page' => -1,
-              'post_type' => 'performance',
-              'orderby' => 'meta_value_num',
-              'order' => 'ASC',
-              'meta_key' => 'date',
-              'meta_query' => array(
-                array(
-                  'key' => 'date',
-                  'compare' => '>=',
-                  'value' => $today,
-                  'type' => 'numeric'
-                )
-              )
-            )
-          );
-
-          while($homepagePerformances->have_posts()) {
-            $homepagePerformances->the_post(); 
-          
-            ?>
-            <a href="<?php the_permalink(); ?>" class="performance-link">
-            <div class="performance-entry">
-              <div class="performance-date">
-                <div class="date">
-                <?php 
-                  $date = get_field('date');
-                  $formattedDate = date('l, F j', strtotime($date));
-                  echo $formattedDate; ?>
-                </div>
-                <div class="time">
-                <?php
-                  $time = get_field('time');
-                  echo $time;  
-                ?>
-                </div>
-              </div>  
-              <div class="performance-location">
-                <div class="venue">
-                <?php 
-                  $venue = get_field('venue');
-                  echo $venue; 
-                ?>
-                </div>
-                <div class="address">
-                <?php 
-                  $address = get_field('address');
-                  echo $address;
-                ?>
-                </div>
-              </div>
-            </div>
-            </a>
-
-          <?php 
-          }
-          ?>
-
-      </div>
+        <h1 class="tour-title">New Clothes</h1>
+        <h2 class="tour-subtitle">Friday August 1st at 1:30 p.m.</h2>
+        <h2 class="tour-subtitle">Pentangle Arts in Woodstock, VT</h2>
+        <div class="content-box the-content">
+          <p>Our film <i><a href="https://newclothesmovie.com" target="_blank">New Clothes</a></i> has been selected for the Vermont Film Festival in Woodstock!
+            We're very excited to share it with you. Go to <a href="https://www.pentanglearts.org/event-details/vermont-film-festival-is-back" target="_blank">Pentangle Arts</a> 
+            for tickets and more information.</p>
+          </p>
+        </div>
           
     </div>
   </div>
 
   <!-- <div class="poster-box content-box"> -->
-    <img src="<?php echo get_theme_file_uri('/images/poster.jpg') ?>" alt="poster for The Duke Is Dead" class="poster-image">
+    <img src="<?php echo get_theme_file_uri('/images/newclothes.jpg') ?>" alt="poster for The Duke Is Dead" class="poster-image">
   <!-- </div> -->
   
   <div class="video">

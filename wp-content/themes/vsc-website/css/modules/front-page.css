@@ -4,6 +4,12 @@
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
 }
 
+.tour-subtitle {
+    font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2.5rem);
+    color: var(--secondary-color);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
 .tour-header {
     font-size: clamp(1rem, calc(1.5rem + 1vw), 3rem);
     background-color: var(--secondary-color);
@@ -21,6 +27,14 @@
 
 .performance-container {
     width: clamp(300px, 100%, 800px);
+}
+
+.content-box.festival-info {
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 8px;
+    border: solid black 3px;
+    margin: 20px;
 }
 
 .performance-entry {
