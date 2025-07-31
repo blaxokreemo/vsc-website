@@ -79,6 +79,28 @@ function contact_form() {
         $message .= 'Subscribed to mailing list: ' . $contact_subscribe . "\n";
 
         wp_mail($to, $subject, $message);
+        
+        // Define the URL and data
+        $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
+        $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
+
+        // Prepare POST data
+        $options = [
+            'http' => [
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'content' => http_build_query($data),
+            ],
+        ];
+
+        // Create stream context
+        $context  = stream_context_create($options);
+
+        // Perform POST request
+        $response = file_get_contents($url, false, $context);
+
+        // Display the response
+        echo $response;
 
     }
 }
