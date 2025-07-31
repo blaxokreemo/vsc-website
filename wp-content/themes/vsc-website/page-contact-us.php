@@ -27,6 +27,11 @@
                             <textarea id="message" name="form-message" rows="5" required></textarea>
                         </div>
 
+                        <div class="form-element" id="subscribe-checkbox">
+                            <input type="checkbox" id="subscribe" name="form-subscribe" checked>
+                            <label for="subscribe">Subscribe to our mailing list for updates</label>
+                        </div>
+
                         <div class="form-element">
                             <button type="submit" name="contact-submit">Send Message</button>
                         </div>

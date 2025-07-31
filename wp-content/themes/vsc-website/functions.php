@@ -68,6 +68,7 @@ function contact_form() {
         $contact_name = sanitize_text_field($_POST['form-name']);
         $contact_email = sanitize_text_field($_POST['form-email']);
         $contact_message = sanitize_textarea_field($_POST['form-message']);
+        $contact_subscribe = isset($_POST['form-subscribe']) ? 'Yes' : 'No';
 
         $to = 'contactsubmissions@vermontsuitcasecompany.com';
         $subject = 'Contact Form Submission from ' . $contact_name;
@@ -75,6 +76,7 @@ function contact_form() {
         $message .= 'Name: ' . $contact_name . "\n";
         $message .= 'Email: ' . $contact_email . "\n";
         $message .= 'Message: ' . "\n" . $contact_message . "\n";
+        $message .= 'Subscribed to mailing list: ' . $contact_subscribe . "\n";
 
         wp_mail($to, $subject, $message);
 
