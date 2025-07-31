@@ -79,7 +79,7 @@ function contact_form() {
         $message .= 'Subscribed to mailing list: ' . $contact_subscribe . "\n";
 
         wp_mail($to, $subject, $message);
-        if ($contact_subscribe === 'Yes') {
+        if (isset($_POST['form-subscribe']) {
             
         // Define the URL and data
         $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
