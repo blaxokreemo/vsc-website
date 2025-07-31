@@ -99,9 +99,6 @@ function contact_form() {
         // Perform POST request
         $response = file_get_contents($url, false, $context);
 
-        // Display the response
-        echo $response;
-
     }
 }
 
