@@ -1,0 +1,48 @@
+.form-element {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(1.5rem, calc(0.5rem + 1.75vw), 3rem);
+    text-align: left;
+    margin: 20px;
+}
+
+.form-element input[type="text"] {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+}
+
+.form-element input[type="email"] {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+}
+
+.form-element input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.form-element textarea {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+}
+
+.form-element button {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--title-color);
+    border-radius: 8px;
+}
+
+#subscribe-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
