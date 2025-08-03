@@ -17,6 +17,11 @@
     font-size: 0.5rem;
 }
 
+.content-box.footer-button:hover {
+    background-color: var(--tertiary-color);
+    color: var(--box-color);
+}
+
 .social {
     color: var(--hover-color);
     font-size: 2rem;
