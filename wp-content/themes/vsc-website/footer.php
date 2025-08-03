@@ -3,7 +3,7 @@
 <footer class="site-footer">
 
 <div class="content-box footer-button">
-    <a href="mailto:vermontsuitcasecompany@gmail.com"><h1 class="contact-us">Contact Us</h1></a>
+    <a href="<?php echo site_url('contact') ?>"><h1 class="contact-us">Contact Us</h1></a>
 </div>
 <div class="social-media">
         <a href="https://www.instagram.com/vermontsuitcasecompany/" target="_blank"><i class="fa-brands fa-instagram social"></i></a>
