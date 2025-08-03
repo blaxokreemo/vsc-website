@@ -2,9 +2,11 @@
 
 <footer class="site-footer">
 
-<div class="content-box footer-button">
-    <a href="<?php echo site_url('contact') ?>"><h1 class="contact-us">Contact Us</h1></a>
-</div>
+<a href="<?php echo site_url('contact') ?>">
+    <div class="content-box footer-button">
+        <h1 class="contact-us">Contact Us</h1>
+    </div>
+</a>
 <div class="social-media">
         <a href="https://www.instagram.com/vermontsuitcasecompany/" target="_blank"><i class="fa-brands fa-instagram social"></i></a>
         <a href="https://www.facebook.com/VermontSuitcaseCompany" target="_blank"><i class="fa-brands fa-facebook social"></i></a>
