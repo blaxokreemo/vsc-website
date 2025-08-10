@@ -13,8 +13,9 @@ class MailingListPopupForm {
 
   // 2. Add Events
   events() {
-
-    this.openPopupButton.addEventListener("click", () => this.openPopup());
+    if (this.openPopupButton != null) {
+      this.openPopupButton.addEventListener("click", () => this.openPopup());
+    }    
     this.footerButton.addEventListener("click", () => this.openPopup());
     this.closePopupButton.addEventListener("click", () => this.closePopup());
 
