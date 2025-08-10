@@ -25,7 +25,8 @@ p {
     --performance-hover-color:rgba(255, 200, 1, 0.7);
     --hover-color: #3373dd;
     --poster-background: #ec8338;
-    --poster-floor: #ff736a
+    --poster-floor: #ff736a;
+    --overlay-color: #3374ddc1;
 }
 
 .fa-solid.primary-color {
