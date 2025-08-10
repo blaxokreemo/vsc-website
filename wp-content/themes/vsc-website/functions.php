@@ -109,16 +109,16 @@ function contact_form() {
         $mailing_list_email = sanitize_text_field($_POST['form-email']);
 
         $to = 'contactsubmissions@vermontsuitcasecompany.com';
-        $subject = 'New Mailing List Subscription from ' . $contact_name;
+        $subject = 'New Mailing List Subscription from ' . $mailing_list_name;
         $message = 'Someone has subscribed to the mailing list using the form on our website.' . "\n\n";
-        $message .= 'Name: ' . $contact_name . "\n";
-        $message .= 'Email: ' . $contact_email . "\n";
+        $message .= 'Name: ' . $mailing_list_name . "\n";
+        $message .= 'Email: ' . $mailing_list_email . "\n";
 
         wp_mail($to, $subject, $message);
 
         // Define the URL and data
         $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
-        $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
+        $data = ['email' => $mailing_list_email, 'name' => $mailing_list_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
 
         // Prepare POST data
         $options = [
