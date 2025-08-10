@@ -103,7 +103,7 @@ function contact_form() {
 
     }
 
-    if(isset($_POST['mailing-list-submit']))
+    elseif(isset($_POST['mailing-list-submit']))
     {
         $mailing_list_name = sanitize_text_field($_POST['form-name']);
         $mailing_list_email = sanitize_text_field($_POST['form-email']);
@@ -113,6 +113,8 @@ function contact_form() {
         $message = 'Someone has subscribed to the mailing list using the form on our website.' . "\n\n";
         $message .= 'Name: ' . $contact_name . "\n";
         $message .= 'Email: ' . $contact_email . "\n";
+
+        wp_mail($to, $subject, $message);
 
         // Define the URL and data
         $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
