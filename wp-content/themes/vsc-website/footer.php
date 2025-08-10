@@ -1,12 +1,31 @@
 </div>
 
+<div class="signup-overlay" id="signup-overlay">
+  <div class="signup-content">
+    <div class="close-button" id="close-button"><i class="fa-solid fa-square-xmark icon"></i></div>
+    <h2 class="mail-text">Join Our Mailing List</h2>
+    <form id="mailing-list-form" action="<?php echo site_url('/subscribed') ?>" method="post">
+      
+      <div class="popup-form-element">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="form-name" placeholder="Enter your name">
+      </div>
+      
+      <div class="popup-form-element">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="form-email" placeholder="Enter your email address" required>
+      </div>
+      
+      <button type="submit" name="mailing-list-submit">Subscribe</button>
+    </form>
+  </div>
+
+</div>
+
 <footer class="site-footer">
 
-<a href="<?php echo site_url('contact') ?>">
-    <div class="content-box footer-button">
-        <h1 class="contact-us">Contact Us</h1>
-    </div>
-</a>
+<button id="footer-mailing-list-button">Stay in Touch!</button>
+
 <div class="social-media">
         <a href="https://www.instagram.com/vermontsuitcasecompany/" target="_blank"><i class="fa-brands fa-instagram social"></i></a>
         <a href="https://www.facebook.com/VermontSuitcaseCompany" target="_blank"><i class="fa-brands fa-facebook social"></i></a>
