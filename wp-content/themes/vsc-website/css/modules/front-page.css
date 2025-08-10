@@ -121,23 +121,34 @@ iframe {
     margin: 20px auto 0 auto;
 }
 
-h2.mail-text {
-    font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2rem);
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
-    text-align: center;
-}
-
 /* Signup Overlay Styles */
 
+#close-button {
+    cursor: pointer;
+}
+
 .signup-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 800px) {
+  .signup-content {
+    width: 90%;
+  }
+}
+
+h2.mail-text {
+    font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2rem);
+    text-align: center;
+    margin: 10px;
 }
 
 .signup-overlay {
@@ -159,4 +170,43 @@ h2.mail-text {
 
 .icon:hover {
     color: var(--tertiary-color);
+}
+
+#mailing-list-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+/* Form Styles */
+
+.popup-form-element {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    text-align: left;
+    margin: 5px;
+}
+
+.popup-form-element input[type="text"] {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+.popup-form-element input[type="email"] {
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    font-family: "mr-eaves-sans", sans-serif;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid black;
 }

@@ -6,10 +6,20 @@
 
 <div class="signup-overlay" id="signup-overlay">
   <div class="signup-content">
-    <span class="close-button" id="close-button"><i class="fa-solid fa-square-xmark icon"></i></span>
+    <div class="close-button" id="close-button"><i class="fa-solid fa-square-xmark icon"></i></div>
     <h2 class="mail-text">Join Our Mailing List</h2>
     <form id="mailing-list-form" action="https://vermontsuitcasecompany.us20.list-manage.com/subscribe/post?u=0f8c3b1d4e5f6a7b8c9d0e1f2&amp;id=3a4b5c6d7e" method="post" target="_blank">
-      <input type="email" name="EMAIL" placeholder="Enter your email address" required>
+      
+      <div class="popup-form-element">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="form-name" placeholder="Enter your name">
+      </div>
+      
+      <div class="popup-form-element">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="form-email" placeholder="Enter your email address" required>
+      </div>
+      
       <button type="submit">Subscribe</button>
     </form>
   </div>
