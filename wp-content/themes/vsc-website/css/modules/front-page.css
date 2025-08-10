@@ -117,4 +117,23 @@ iframe {
     height: clamp(300px, 30vw, 600px);
 } */
 
+.mailing-list-button {
+    margin: 20px auto 0 auto;
+}
 
+h2.mail-text {
+    font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2rem);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.signup-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--hover-color);
+  z-index: 1000; /* Ensure it's on top */
+}

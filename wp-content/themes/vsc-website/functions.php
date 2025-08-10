@@ -1,14 +1,14 @@
 <?php
 
-function bobbi_files() {
+function vsc_files() {
     // wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gidugu&family=Signika+Negative:wght@300..700&display=swap', [], null);
     wp_enqueue_style('vsc_styles', get_theme_file_uri('/css/vsc-style.css'));
     // wp_enqueue_style('adobe_fonts', '//use.typekit.net/lxj4hjt.css');
     wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
-    // wp_enqueue_script('university_main_js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('vsc_js', get_theme_file_uri('/build/index.js'), array(), '1.0', true);
 }
 
-add_action('wp_enqueue_scripts', 'bobbi_files');
+add_action('wp_enqueue_scripts', 'vsc_files');
 
 function vsc_post_types() {
     register_post_type('performance', array(

@@ -1,6 +1,22 @@
 <?php get_header(); ?>
 
-<div class="content-narrow container-flex full-page-height">
+<div class="container-flex content-narrow mailing-list-button">
+  <button id="mailing-list-button">Join Our Mailing List</button>
+</div>
+
+<div class="signup-overlay" id="signup-overlay">
+  <div class="signup-content">
+    <span class="close-button" id="close-button">&times;</span>
+    <h2 class="mail-text">Join Our Mailing List</h2>
+    <form id="mailing-list-form" action="https://vermontsuitcasecompany.us20.list-manage.com/subscribe/post?u=0f8c3b1d4e5f6a7b8c9d0e1f2&amp;id=3a4b5c6d7e" method="post" target="_blank">
+      <input type="email" name="EMAIL" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="content-narrow container-flex-front-page full-page-height">
   <div class="tour-dates">
     <div class="content-box tour-header">
       <h1 class="tour-header">Our Film at Vermont Film Festival!</h1>
