@@ -1,13 +1,13 @@
 .tour-title {
     font-size: clamp(1rem, calc(1.5rem + 1vw), 3rem);
     color: var(--secondary-color);
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tour-subtitle {
     font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2.5rem);
     color: var(--secondary-color);
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tour-header {

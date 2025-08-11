@@ -1,0 +1,64 @@
+.time-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+   
+    margin: 20px;
+
+}
+
+.year {
+    flex: 0 0 60px;
+    font-size: clamp(3rem, calc(1.5rem + 2vw), 4rem);
+    font-family: "Carton Six Regular", sans-serif;
+    text-align: center;
+    padding: 5px 20px;
+    margin: 0;
+    background-color: var(--secondary-color);
+    border-radius: 8px 0 0 8px;
+}
+
+.event {
+    flex: 1;
+    background-color: var(--hover-color);
+    border: 3px solid black;
+    border-radius: 8px;
+    color: var(--secondary-color);
+}
+
+.event-title {
+    font-size: clamp(1.5rem, calc(0.5rem + 1.75vw), 3rem);
+    margin: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-description-and-image {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.event-image {
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover;
+    flex: 1;
+    object-position: 0% 10%;
+    border: 3px solid var(--secondary-color);
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-description {
+    color: black;
+    font-family: "mr-eaves-sans", sans-serif;
+    font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
