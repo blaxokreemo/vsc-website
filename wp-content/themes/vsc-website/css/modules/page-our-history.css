@@ -2,9 +2,23 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;;
    
     margin: 20px;
+}
 
+.time-block:nth-child(odd) {
+    --block-primary: var(--hover-color);
+    --block-secondary: var(--secondary-color);
+    --block-text: black;
+    --shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.time-block:nth-child(even) {
+    --block-primary: var(--secondary-color);
+    --block-secondary: var(--hover-color);
+    --block-text: var(--secondary-color);
+    --shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .year {
@@ -14,23 +28,31 @@
     text-align: center;
     padding: 5px 20px;
     margin: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--block-secondary);
     border-radius: 8px 0 0 8px;
+    color: var(--block-text);
+}
+
+@media screen and (max-width: 600px) {
+    .year {
+        border-radius: 8px 8px 0 0;
+        width: 100%;
+    }
 }
 
 .event {
     flex: 1;
-    background-color: var(--hover-color);
+    background-color: var(--block-primary);
     border: 3px solid black;
     border-radius: 8px;
-    color: var(--secondary-color);
+    color: var(--block-secondary);
 }
 
 .event-title {
     font-size: clamp(1.5rem, calc(0.5rem + 1.75vw), 3rem);
     margin: 10px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--shadow);
 }
 
 .event-description-and-image {
@@ -45,16 +67,24 @@
     object-fit: cover;
     flex: 1;
     object-position: 0% 10%;
-    border: 3px solid var(--secondary-color);
+    border: 3px solid var(--block-secondary);
     border-radius: 20px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 600px) {
+    .event-image {
+        max-width: 100px;
+        height: 200px;
+        object-position: 35% 20%;
+    }
+}
+
 .event-description {
-    color: black;
+    color: var(--block-text);
     font-family: "mr-eaves-sans", sans-serif;
     font-size: clamp(1rem, calc(0.25rem + 1.25vw), 2rem);
-    background-color: var(--secondary-color);
+    background-color: var(--block-secondary);
     border-radius: 8px;
     padding: 10px;
     margin: 20px;
