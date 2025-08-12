@@ -43,7 +43,6 @@
 @media screen and (max-width: 600px) {
     .year {
         border-radius: 8px 8px 0 0;
-        width: 100%;
     }
 }
 
