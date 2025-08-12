@@ -7,6 +7,13 @@
     margin: 20px;
 }
 
+@media screen and (max-width: 600px) {
+    .time-block {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .time-block:nth-child(odd) {
     --block-primary: var(--hover-color);
     --block-secondary: var(--secondary-color);
@@ -61,6 +68,13 @@
     margin: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .event-description-and-image {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .event-image {
     max-width: 300px;
     max-height: 200px;
@@ -74,8 +88,7 @@
 
 @media screen and (max-width: 600px) {
     .event-image {
-        max-width: 100px;
-        height: 200px;
+        max-height: 200px;
         object-position: 35% 20%;
     }
 }
