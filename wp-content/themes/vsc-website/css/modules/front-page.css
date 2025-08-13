@@ -210,3 +210,12 @@ h2.mail-text {
     border-radius: 8px;
     border: 2px solid black;
 }
+
+strong.mailing-list-link {
+    color: var(--hover-color);
+    cursor: pointer;
+}
+
+strong.mailing-list-link:hover {
+    color: white;
+}

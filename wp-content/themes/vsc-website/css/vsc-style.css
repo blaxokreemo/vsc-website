@@ -11,7 +11,7 @@
 @import "modules/page-our-history.css";
 
 @font-face {
-    font-family: 'Carton Six Regular';
+    font-family:'Carton Six Regular';
     font-style: normal;
     font-weight: normal;
     src: url('../fonts/Carton_Six.ttf') format('ttf'),

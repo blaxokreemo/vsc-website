@@ -31,7 +31,7 @@
 .year {
     flex: 0 0 60px;
     font-size: clamp(3rem, calc(1.5rem + 2vw), 4rem);
-    font-family: "Carton Six Regular", sans-serif;
+    font-family:"Carton Six Regular", sans-serif;
     text-align: center;
     padding: 5px 20px;
     margin: 0;

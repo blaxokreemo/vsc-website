@@ -91,7 +91,7 @@ button {
     border: black 2px solid;
     font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2rem);
     cursor: pointer;
-    font-family: 'Carton Six Regular', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Carton Six Regular', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 0.1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: all 0.2s ease;

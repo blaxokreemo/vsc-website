@@ -9,16 +9,18 @@
 <div class="content-narrow container-flex full-page-height">
   <div class="tour-dates">
     <div class="content-box tour-header">
-      <h1 class="tour-header">Our Film at Vermont Film Festival!</h1>
+      <h1 class="tour-header">New Clothes Wins Two Awards at Vermont Film Festival!</h1>
     </div>
     <div class="content-box performance-container">
         <h1 class="tour-title">New Clothes</h1>
-        <h2 class="tour-subtitle">Friday August 1st at 1:30 p.m.</h2>
-        <h2 class="tour-subtitle">Pentangle Arts in Woodstock, VT</h2>
+        <h2 class="tour-subtitle">Best Narrative Feature</h2>
+        <h2 class="tour-subtitle">Best Emerging Filmmakers</h2>
         <div class="content-box the-content">
-          <p>Our film <i><a href="https://newclothesmovie.com" target="_blank">New Clothes</a></i> has been selected for the Vermont Film Festival in Woodstock!
-            We're very excited to share it with you. Go to <a href="https://www.pentanglearts.org/event-details/vermont-film-festival-is-back" target="_blank">Pentangle Arts</a> 
-            for tickets and more information.</p>
+          <p>We had a great time at <a href="https://vermontfilmfestival.com" target="_blank">Vermont Film Festival</a> and met a lot of wonderful
+            artists. Our film <i><a href="https://newclothesmovie.com" target="_blank">New Clothes</a></i>
+            won two awards! We're hoping to take it on a tour of Vermont within the next year. If you'd like to stay
+            up to date on our schedule, make sure to join our <strong class="mailing-list-link">mailing list</strong>!
+          </p>
           </p>
         </div>
           

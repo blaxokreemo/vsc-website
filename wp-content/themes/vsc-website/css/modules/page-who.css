@@ -54,7 +54,7 @@
 }
 
 .links-list li {
-    font-family: 'Carton Six Regular';
+    font-family:'Carton Six Regular';
     font-size: clamp(1rem, calc(1rem + 1vw), 3rem)
 }
 

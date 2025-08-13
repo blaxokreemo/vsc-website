@@ -79,7 +79,7 @@ nav ul {
 
 nav li {
     color: black;
-    font-family: 'Carton Six Regular', 'Gill Sans';
+    font-family:'Carton Six Regular', 'Gill Sans';
     background-color: var(--secondary-color);
     border-radius: 8px;
     border: 3px black solid;
