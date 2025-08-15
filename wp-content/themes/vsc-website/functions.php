@@ -82,7 +82,7 @@ function contact_form() {
         if (isset($_POST['form-subscribe'])) {
             
         // Define the URL and data
-        $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
+        $url = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
         $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
 
         // Prepare POST data
@@ -117,7 +117,7 @@ function contact_form() {
         wp_mail($to, $subject, $message);
 
         // Define the URL and data
-        $url = 'http://newsletter.vermontsuitcasecompany.com:9000/subscription/form';
+        $url = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
         $data = ['email' => $mailing_list_email, 'name' => $mailing_list_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
 
         // Prepare POST data
