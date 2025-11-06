@@ -76,7 +76,7 @@
   </div>
 
   <!-- <div class="poster-box content-box"> -->
-    <img src="<?php echo get_theme_file_uri('/images/poster.jpg') ?>" alt="poster for The Duke Is Dead" class="poster-image">
+    <img src="<?php echo get_theme_file_uri('/images/wenceslas-poster.jpg') ?>" alt="poster for The Duke Is Dead" class="poster-image">
   <!-- </div> -->
   
   <div class="video">
