@@ -24,7 +24,7 @@
 
 <footer class="site-footer">
 
-<button id="footer-mailing-list-button">Stay in Touch!</button>
+<button class="footer-button" id="footer-mailing-list-button">Stay in Touch!</button>
 
 <div class="social-media">
         <a href="https://www.instagram.com/vermontsuitcasecompany/" target="_blank"><i class="fa-brands fa-instagram social"></i></a>
@@ -32,7 +32,7 @@
         <a href="https://www.youtube.com/@@vermontsuitcasecompany7681" target="_blank"><i class="fa-brands fa-youtube social"></i></a>
 </div>
 
-<button id="donate-button"><a href="https://www.paypal.com/donate/?hosted_button_id=XSB9R86AKML24" target="_blank">Donate</a></button>
+<button class="footer-button" id="donate-button"><a href="https://www.paypal.com/donate/?hosted_button_id=XSB9R86AKML24" target="_blank">Donate</a></button>
 
 
 </footer>
