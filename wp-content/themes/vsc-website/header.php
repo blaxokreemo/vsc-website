@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
 </head>
-<header class="site-header" style="background-image: url('<?php echo get_theme_file_uri('images/header2.jpg'); ?>')">
+<header class="site-header" style="background-image: url('<?php echo get_theme_file_uri('images/header-small.jpg'); ?>')">
     <div class="logo">
         <a href="<?php echo site_url(); ?>"><img src="<?php echo get_theme_file_uri('images/logo.png') ?>" alt="Vermont Suitcase Company Logo" class="logo-image"></a>
     </div>

@@ -138,6 +138,8 @@ function contact_form() {
 
     }   
 
-add_action('wp_head', 'contact_form')
+add_action('wp_head', 'contact_form');
+
+add_filter( 'xmlrpc_enabled', '__return_false' );
 
 ?>
