@@ -92,6 +92,16 @@
     box-shadow: 0 10px 12px rgba(0, 0, 0, 0.8);
 }
 
+.content-image {
+    width: 100%;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.8);
+}
+
+.sponsor-image {
+    width: clamp(200px, 20vw, 400px);
+    margin-top: 10px;
+}
+
 .moniff-logo {
     width: clamp(200px, 20vw, 400px);
 }
