@@ -62,6 +62,18 @@ function vsc_features() {
 
 add_action('after_setup_theme', 'vsc_features');
 
+add_action( 'phpmailer_init', function( $phpmailer ) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = SMTP_SERVER;
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Port       = SMTP_PORT;
+    $phpmailer->Username   = SMTP_USER;
+    $phpmailer->Password   = SMTP_PASS;
+    $phpmailer->SMTPSecure = 'tls';
+    $phpmailer->From       = SMTP_USER;
+    $phpmailer->FromName   = 'WordPress Contact Form';
+});
+
 function contact_form() {
     if(isset($_POST['contact-submit']))
     {
