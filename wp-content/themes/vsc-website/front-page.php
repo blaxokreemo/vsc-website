@@ -1,33 +1,82 @@
 <?php get_header(); ?>
 
-<div class="container-flex-no-padding content-narrow mailing-list-button">
-  <button id="mailing-list-button">Join Our Mailing List</button>
-</div>
-
-
-
 <div class="content-narrow container-flex full-page-height">
   <div class="tour-dates">
     <div class="content-box tour-header">
-
-    <h1 class="tour-header">We'll be back on the road this summer!</h1>
-      
+      <h1 class="tour-header">Summer 2026 Tour Dates</h1>
     </div>
-    
     <div class="content-box performance-container">
+        <h1 class="tour-title">My Lady of Whims</h1>
+        <h2 class="tour-subtitle">Adapted from the 1925 silent film</h2>
+        <div class="performance-table">
+          <?php
+          $today = date('Ymd');
+          $homepagePerformances = new WP_Query(
+            array(
+              'posts_per_page' => -1,
+              'post_type' => 'performance',
+              'orderby' => 'meta_value_num',
+              'order' => 'ASC',
+              'meta_key' => 'date',
+              'meta_query' => array(
+                array(
+                  'key' => 'date',
+                  'compare' => '>=',
+                  'value' => $today,
+                  'type' => 'numeric'
+                )
+              )
+            )
+          );
 
-        <h2 class="tour-subtitle">Thanks for coming to see</h2>
-        <h1 class="tour-title">King Wenceslas</h1>
+          while($homepagePerformances->have_posts()) {
+            $homepagePerformances->the_post(); 
+          
+            ?>
+            <a href="<?php the_permalink(); ?>" class="performance-link">
+            <div class="performance-entry">
+              <div class="performance-date">
+                <div class="date">
+                <?php 
+                  $date = get_field('date');
+                  $formattedDate = date('l, F j', strtotime($date));
+                  echo $formattedDate; ?>
+                </div>
+                <div class="time">
+                <?php
+                  $time = get_field('time');
+                  echo $time;  
+                ?>
+                </div>
+              </div>  
+              <div class="performance-location">
+                <div class="venue">
+                <?php 
+                  $venue = get_field('venue');
+                  echo $venue; 
+                ?>
+                </div>
+                <div class="address">
+                <?php 
+                  $address = get_field('address');
+                  echo $address;
+                ?>
+                </div>
+              </div>
+            </div>
+            </a>
 
-        <div class="content-box the-content">
-          <img src="<?php echo get_theme_file_uri('/images/wenceslas-fan.jpg') ?>" alt="wind scene from King Wenceslas" class="content-image">
-        </div>
+          <?php 
+          }
+          ?>
+
+      </div>
           
     </div>
   </div>
 
   <!-- <div class="poster-box content-box"> -->
-    <img src="<?php echo get_theme_file_uri('/images/wenceslas-poster.jpg') ?>" alt="poster for King Wenceslas" class="poster-image">
+    <img src="<?php echo get_theme_file_uri('/images/whims-poster.jpg') ?>" alt="poster for My Lady of Whims" class="poster-image">
   <!-- </div> -->
   
   <div class="video">
@@ -36,11 +85,6 @@
     </div>
     <div class="video-box">
     <iframe title="vimeo-player" src="https://player.vimeo.com/video/1066445073?h=c030265f72" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
-  </div>
-
-  <div class="content-box">
-    <h2 class="tour-subtitle">Vermont Suitcase Company is proudly sponsored by:</h2>
-    <img src="<?php echo get_theme_file_uri('/images/foardpanel-transp.png') ?>" alt="Foard Panel logo" class="sponsor-image">
   </div>
 
 </div>
