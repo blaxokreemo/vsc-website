@@ -30,7 +30,8 @@
       </div>
     </a>
   </div>
-  
+</div>
+<div class="container-no-flex content-narrow" style="padding-bottom: 80px">
   <div class="video">
     <div class="content-box">
         <h2 class="video-title">What is Vermont Suitcase Company?</h2>
@@ -38,7 +39,6 @@
     <div class="video-box">
     <iframe title="vimeo-player" src="https://player.vimeo.com/video/1066445073?h=c030265f72" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
   </div>
-
 </div>
 
 
