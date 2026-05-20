@@ -22,7 +22,6 @@
 
 .container-flex {
     height: auto;
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -63,12 +62,19 @@
     border: 3px solid black;
     padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
     text-align: center;
+}
+
+.grow {
+    flex-grow: 1;
 }
 
 .box-header {
     background-color: var(--secondary-color);
+}
+
+.background-hover {
+    background-color: var(--hover-color);
 }
 
 .header-row {
@@ -106,5 +112,9 @@ button:hover {
 button:active {
     background-color: var(--hover-color);
     transform: scale(0.95);
+}
+
+.inline-icon {
+    margin: 0 5px;
 }
 

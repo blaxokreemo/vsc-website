@@ -13,7 +13,8 @@
         <h1 class="site-title-text"><a href="<?php echo site_url(); ?>">Vermont Suitcase Company</a></h1>
         <nav class="site-nav">
         <ul>
-            <li><a href="<?php echo site_url() ?>">Schedule</a></li>
+            <li><a href="<?php echo site_url('film-tour') ?>">Film</a></li>
+            <li><a href="<?php echo site_url('theater-tour') ?>">Theater</a></li>
             <li><a href="<?php echo site_url('about') ?>">About</a></li>
             <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
         </ul>

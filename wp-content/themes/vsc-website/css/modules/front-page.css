@@ -15,6 +15,10 @@
     background-color: var(--secondary-color);
 }
 
+.tour-sub-header {
+    font-size: clamp(1rem, calc(1.25rem + 0.5vw), 2.5rem);
+}
+
 .tour-dates {
     display: flex;
     flex-basis: 500px;
@@ -84,7 +88,10 @@
     font-weight: normal;
 }
 
-
+.poster-image-double {
+    width: clamp(200px, 40vw, 400px);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.8);
+}
 
 
 .poster-image {
@@ -232,4 +239,39 @@ strong.mailing-list-link {
 
 strong.mailing-list-link:hover {
     color: white;
+}
+
+
+/* Cards for June and July - making each entire div a link to that month's schedule with some animation */
+
+.month-card {
+  display: block;           /* makes the whole <a> a block */
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.month-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #1a4e9e;
+  filter: brightness(1.08);
+}
+.month-card:active {
+  transform: translateY(-1px) scale(1.005); /* snap back on click */
+  filter: brightness(0.97);
+}
+
+/* Testing new iframe CSS for videos */
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

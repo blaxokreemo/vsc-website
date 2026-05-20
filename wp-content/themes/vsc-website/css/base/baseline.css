@@ -33,6 +33,18 @@ p {
     --overlay-color: #3374ddc1;
 }
 
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-tertiary {
+    color: var(--tertiary-color);
+}
+
+.text-hover {
+    color: var(--hover-color);
+}
+
 .fa-solid.primary-color {
     color: var(--primary-color);
 }
