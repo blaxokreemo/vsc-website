@@ -1,44 +1,83 @@
 <?php get_header(); ?>
 
-<div class="content-narrow container-no-flex full-page-height">
-  <div class="content-box tour-header">
-    <h1 class="tour-header">We have two tours in Summer 2026</h1>
-    <h2 class="tour-sub-header">Film Tour in June, Theater Tour in July</h2>
-  </div>
-  <div class="container-flex">
-    <a href="<?php echo site_url('film-tour') ?>" class="month-card grow">
-      <div class="content-box box-header">
-        <h1 class="tour-header"><i class="fa-solid fa-clapperboard inline-icon text-hover"></i>JUNE<i class="fa-solid fa-video inline-icon text-hover"></i></h1>
-        <h2 class="tour-sub-header">Click for schedule!</h2>
-      </div>
-      <div class="content-box">
-          <h1 class="tour-title">New Clothes</h1>
-          <h2 class="tour-subtitle">A Vermont Suitcase Feature Film</h2>
-          <img src="<?php echo get_theme_file_uri('/images/film-tour-small.jpg') ?>" alt="poster for New Clothes tour" class="poster-image-double">
-      </div>
-    </a>
-    <a href="<?php echo site_url('theater-tour') ?>" class="month-card grow">
-      <div class="content-box box-header">
-        <h1 class="tour-header"><i class="fa-solid fa-masks-theater inline-icon text-hover"></i>JULY<i class="fa-solid fa-masks-theater inline-icon text-hover"></i></h1>
-        <h2 class="tour-sub-header">Click for schedule!</h2>
-      </div>
-      
-      <div class="content-box">
-          <h1 class="tour-title">My Lady of Whims</h1>
-          <h2 class="tour-subtitle">Vermont Suitcase Summer Theater</h2>
-          <img src="<?php echo get_theme_file_uri('/images/whims-poster.jpg') ?>" alt="poster for My Lady of Whims" class="poster-image-double">
-      </div>
-    </a>
-  </div>
-</div>
-<div class="container-no-flex content-narrow" style="padding-bottom: 80px">
-  <div class="video">
-    <div class="content-box">
-        <h2 class="video-title">What is Vermont Suitcase Company?</h2>
+<div class="content-narrow container-flex full-page-height">
+  <div class="tour-dates">
+    <div class="content-box tour-header">
+      <h1 class="tour-header">Summer 2026 Tour Dates</h1>
     </div>
-    <div class="video-box">
-    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1066445073?h=c030265f72" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+    <div class="content-box performance-container">
+        <h1 class="tour-title">My Lady of Whims</h1>
+        <h2 class="tour-subtitle">Adapted from the 1925 silent film</h2>
+        <div class="performance-table">
+          <?php
+          $homepagePerformances = new WP_Query(
+            array(
+              'posts_per_page' => -1,
+              'post_type' => 'performance',
+              'orderby' => 'meta_value_num',
+              'order' => 'ASC',
+              'meta_key' => 'date',
+              'meta_query' => array(
+                array(
+                  'key' => 'date',
+                  'compare' => '>=',
+                  'value' => '20260701',
+                  'type' => 'numeric'
+                )
+              )
+            )
+          );
+
+          while($homepagePerformances->have_posts()) {
+            $homepagePerformances->the_post(); 
+          
+            ?>
+            <a href="<?php the_permalink(); ?>" class="performance-link">
+            <div class="performance-entry">
+              <div class="performance-date">
+                <div class="date">
+                <?php 
+                  $date = get_field('date');
+                  $formattedDate = date('l, F j', strtotime($date));
+                  echo $formattedDate; ?>
+                </div>
+                <div class="time">
+                <?php
+                  $time = get_field('time');
+                  echo $time;  
+                ?>
+                </div>
+              </div>  
+              <div class="performance-location">
+                <div class="venue">
+                <?php 
+                  $venue = get_field('venue');
+                  echo $venue; 
+                ?>
+                </div>
+                <div class="address">
+                <?php 
+                  $address = get_field('address');
+                  echo $address;
+                ?>
+                </div>
+              </div>
+            </div>
+            </a>
+
+          <?php 
+          }
+          ?>
+
+      </div>
+          
+    </div>
   </div>
+
+  <!-- <div class="poster-box content-box"> -->
+    <img src="<?php echo get_theme_file_uri('/images/whims-poster.jpg') ?>" alt="poster for My Lady of Whims" class="poster-image">
+  <!-- </div> -->
+
 </div>
 
 
