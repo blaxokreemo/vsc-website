@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family:'Carton Six Regular', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 0.1rem;
@@ -11,6 +16,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
     font-size: clamp(1rem, calc(0.5rem + 0.5vw), 1.5rem);
+}
+
+h3 {
+    font-size: clamp(0.25rem, calc(0.5rem + 2vw), 2.5rem);
 }
 
 p {
