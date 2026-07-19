@@ -2,6 +2,9 @@
 
 <div class="content-narrow container-flex full-page-height">
   <div class="tour-dates">
+    <div class="content-box">
+      <h1 class="tour-title">ATTENTION: CAMP MEADE PERFORMANCE IS AT 1:30 PM on Sunday 7/19 - there was previously an error on this site that said 2:30.</h1>
+    </div>
     <div class="content-box tour-header">
       <h1 class="tour-header">Summer 2026 Tour Dates</h1>
     </div>
