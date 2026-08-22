@@ -75,80 +75,79 @@ add_action( 'phpmailer_init', function( $phpmailer ) {
 });
 
 function contact_form() {
-    if(isset($_POST['contact-submit']))
-    {
-        $contact_name = sanitize_text_field($_POST['form-name']);
-        $contact_email = sanitize_text_field($_POST['form-email']);
-        $contact_message = sanitize_textarea_field($_POST['form-message']);
-        $contact_subscribe = isset($_POST['form-subscribe']) ? 'Yes' : 'No';
+    if ( isset( $_POST['contact-submit'] ) ) {
 
-        $to = 'contactsubmissions@vermontsuitcasecompany.com';
+        // Verify nonce
+        if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( $_POST['contact_nonce'], 'contact_form_submit' ) ) {
+            return;
+        }
+
+        $contact_name      = sanitize_text_field( $_POST['form-name'] );
+        $contact_email     = sanitize_text_field( $_POST['form-email'] );
+        $contact_message   = sanitize_textarea_field( $_POST['form-message'] );
+        $contact_subscribe = isset( $_POST['form-subscribe'] ) ? 'Yes' : 'No';
+
+        $to      = 'contactsubmissions@vermontsuitcasecompany.com';
         $subject = 'Contact Form Submission from ' . $contact_name;
-        $message = 'You have received a new message from the contact form on your website.' . "\n\n";
+        $message  = 'You have received a new message from the contact form on your website.' . "\n\n";
         $message .= 'Name: ' . $contact_name . "\n";
         $message .= 'Email: ' . $contact_email . "\n";
         $message .= 'Message: ' . "\n" . $contact_message . "\n";
         $message .= 'Subscribed to mailing list: ' . $contact_subscribe . "\n";
 
-        wp_mail($to, $subject, $message);
-        if (isset($_POST['form-subscribe'])) {
-            
-        // Define the URL and data
-        $url = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
-        $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
-
-        // Prepare POST data
-        $options = [
-            'http' => [
-                'method'  => 'POST',
-                'header'  => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query($data),
-            ],
-        ];
-
-        // Create stream context
-        $context  = stream_context_create($options);
-
-        // Perform POST request
-        $response = file_get_contents($url, false, $context);
+        $mail_sent = wp_mail( $to, $subject, $message );
+        if ( ! $mail_sent ) {
+            error_log( 'wp_mail failed on contact form submission' );
         }
 
-    }
+        if ( $contact_subscribe === 'Yes' ) {
+            $url  = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
+            $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
+            $options = [
+                'http' => [
+                    'method'  => 'POST',
+                    'header'  => 'Content-type: application/x-www-form-urlencoded',
+                    'content' => http_build_query( $data ),
+                ],
+            ];
+            $context  = stream_context_create( $options );
+            $response = file_get_contents( $url, false, $context );
+        }
 
-    elseif(isset($_POST['mailing-list-submit']))
-    {
-        $mailing_list_name = sanitize_text_field($_POST['form-name']);
-        $mailing_list_email = sanitize_text_field($_POST['form-email']);
+    } elseif ( isset( $_POST['mailing-list-submit'] ) ) {
 
-        $to = 'contactsubmissions@vermontsuitcasecompany.com';
+        // Verify nonce
+        if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( $_POST['contact_nonce'], 'contact_form_submit' ) ) {
+            return;
+        }
+
+        $mailing_list_name  = sanitize_text_field( $_POST['form-name'] );
+        $mailing_list_email = sanitize_text_field( $_POST['form-email'] );
+
+        $to      = 'contactsubmissions@vermontsuitcasecompany.com';
         $subject = 'New Mailing List Subscription from ' . $mailing_list_name;
-        $message = 'Someone has subscribed to the mailing list using the form on our website.' . "\n\n";
+        $message  = 'Someone has subscribed to the mailing list using the form on our website.' . "\n\n";
         $message .= 'Name: ' . $mailing_list_name . "\n";
         $message .= 'Email: ' . $mailing_list_email . "\n";
 
-        wp_mail($to, $subject, $message);
+        $mail_sent = wp_mail( $to, $subject, $message );
+        if ( ! $mail_sent ) {
+            error_log( 'wp_mail failed on mailing list form submission' );
+        }
 
-        // Define the URL and data
-        $url = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
+        $url  = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
         $data = ['email' => $mailing_list_email, 'name' => $mailing_list_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
-
-        // Prepare POST data
         $options = [
             'http' => [
                 'method'  => 'POST',
                 'header'  => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query($data),
+                'content' => http_build_query( $data ),
             ],
         ];
-
-        // Create stream context
-        $context  = stream_context_create($options);
-
-        // Perform POST request
-        $response = file_get_contents($url, false, $context);
-        }
-
-    }   
+        $context  = stream_context_create( $options );
+        $response = file_get_contents( $url, false, $context );
+    }
+}
 
 add_action('wp_head', 'contact_form');
 

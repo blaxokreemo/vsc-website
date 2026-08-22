@@ -5,7 +5,7 @@
     <div class="close-button" id="close-button"><i class="fa-solid fa-square-xmark icon"></i></div>
     <h2 class="mail-text">Join Our Mailing List</h2>
     <form id="mailing-list-form" action="<?php echo site_url('/subscribed') ?>" method="post">
-      
+      <?php wp_nonce_field('contact_form_submit', 'contact_nonce'); ?>      
       <div class="popup-form-element">
         <label for="name">Name:</label>
         <input type="text" id="name" name="form-name" placeholder="Enter your name">

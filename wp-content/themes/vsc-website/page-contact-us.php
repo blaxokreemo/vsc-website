@@ -11,7 +11,8 @@
             <div class="contact-form-container the-content">
                 <p class="contact-invitation">Interested in booking a show on our summer or winter tours? Questions for us? Just want to say hi? We'd love to hear from you!
                 </p>
-                <form class="contact-form" method="post" action="<?php echo site_url('/thankyou') ?>">
+		<form class="contact-form" method="post" action="<?php echo site_url('/thankyou') ?>">
+			<?php wp_nonce_field('contact_form_submit', 'contact_nonce'); ?>
                         <div class="form-element">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="form-name" required>
