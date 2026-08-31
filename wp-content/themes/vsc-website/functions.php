@@ -74,18 +74,35 @@ add_action( 'phpmailer_init', function( $phpmailer ) {
     $phpmailer->FromName   = 'WordPress Contact Form';
 });
 
+// Returns true if submission looks like spam
+function vsc_is_spam_submission( $name ) {
+    // Honeypot: if this hidden field is filled in, it's a bot
+    if ( ! empty( $_POST['form-website'] ) ) {
+        return true;
+    }
+    // Name filter: block names ending in "dum" (case-insensitive)
+    if ( preg_match( '/dum$/i', trim( $name ) ) ) {
+        return true;
+    }
+    return false;
+}
+
 function contact_form() {
     if ( isset( $_POST['contact-submit'] ) ) {
-
         // Verify nonce
         if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( $_POST['contact_nonce'], 'contact_form_submit' ) ) {
             return;
         }
-
         $contact_name      = sanitize_text_field( $_POST['form-name'] );
         $contact_email     = sanitize_text_field( $_POST['form-email'] );
         $contact_message   = sanitize_textarea_field( $_POST['form-message'] );
         $contact_subscribe = isset( $_POST['form-subscribe'] ) ? 'Yes' : 'No';
+
+        // Spam check — silently drop, don't tip off the bot
+        if ( vsc_is_spam_submission( $contact_name ) ) {
+            error_log( 'Contact form submission blocked as spam: ' . $contact_name );
+            return;
+        }
 
         $to      = 'contactsubmissions@vermontsuitcasecompany.com';
         $subject = 'Contact Form Submission from ' . $contact_name;
@@ -94,12 +111,10 @@ function contact_form() {
         $message .= 'Email: ' . $contact_email . "\n";
         $message .= 'Message: ' . "\n" . $contact_message . "\n";
         $message .= 'Subscribed to mailing list: ' . $contact_subscribe . "\n";
-
         $mail_sent = wp_mail( $to, $subject, $message );
         if ( ! $mail_sent ) {
             error_log( 'wp_mail failed on contact form submission' );
         }
-
         if ( $contact_subscribe === 'Yes' ) {
             $url  = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
             $data = ['email' => $contact_email, 'name' => $contact_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
@@ -113,28 +128,29 @@ function contact_form() {
             $context  = stream_context_create( $options );
             $response = file_get_contents( $url, false, $context );
         }
-
     } elseif ( isset( $_POST['mailing-list-submit'] ) ) {
-
         // Verify nonce
         if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( $_POST['contact_nonce'], 'contact_form_submit' ) ) {
             return;
         }
-
         $mailing_list_name  = sanitize_text_field( $_POST['form-name'] );
         $mailing_list_email = sanitize_text_field( $_POST['form-email'] );
+
+        // Spam check
+        if ( vsc_is_spam_submission( $mailing_list_name ) ) {
+            error_log( 'Mailing list submission blocked as spam: ' . $mailing_list_name );
+            return;
+        }
 
         $to      = 'contactsubmissions@vermontsuitcasecompany.com';
         $subject = 'New Mailing List Subscription from ' . $mailing_list_name;
         $message  = 'Someone has subscribed to the mailing list using the form on our website.' . "\n\n";
         $message .= 'Name: ' . $mailing_list_name . "\n";
         $message .= 'Email: ' . $mailing_list_email . "\n";
-
         $mail_sent = wp_mail( $to, $subject, $message );
         if ( ! $mail_sent ) {
             error_log( 'wp_mail failed on mailing list form submission' );
         }
-
         $url  = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
         $data = ['email' => $mailing_list_email, 'name' => $mailing_list_name, 'l' => '646eba37-2220-4093-ad96-667cba6dc7fd'];
         $options = [
@@ -148,7 +164,6 @@ function contact_form() {
         $response = file_get_contents( $url, false, $context );
     }
 }
-
 add_action('wp_head', 'contact_form');
 
 add_filter( 'xmlrpc_enabled', '__return_false' );
