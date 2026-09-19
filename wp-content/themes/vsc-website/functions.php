@@ -166,6 +166,101 @@ function contact_form() {
 }
 add_action('wp_head', 'contact_form');
 
+/**
+ * SEO & Social Sharing: Meta Description, Open Graph, Twitter Cards, JSON-LD
+ */
+add_action( 'wp_head', 'vsc_seo_meta_tags', 1 );
+function vsc_seo_meta_tags() {
+
+    // --- Meta Description ---
+    if ( is_singular() ) {
+        $description = has_excerpt() ? get_the_excerpt() : wp_trim_words( strip_shortcodes( get_the_content() ), 30 );
+    } else {
+        $description = 'Vermont Suitcase Company tours the Green Mountain State twice a year with fast, funny, accessible theater. We also make movies!';
+    }
+    $description = esc_attr( wp_strip_all_tags( $description ) );
+
+    // --- Title & URL for this page ---
+    $page_title = is_singular() ? get_the_title() : get_bloginfo( 'name' );
+    $page_url   = is_singular() ? get_permalink() : home_url( '/' );
+
+    // --- Image fallback ---
+    $default_image = get_stylesheet_directory_uri() . '/images/vsc-social-share-default.jpg';
+    $og_image = ( is_singular() && has_post_thumbnail() )
+        ? get_the_post_thumbnail_url( get_the_ID(), 'large' )
+        : $default_image;
+
+    ?>
+    <meta name="description" content="<?php echo $description; ?>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="<?php echo is_singular() ? 'article' : 'website'; ?>">
+    <meta property="og:title" content="<?php echo esc_attr( $page_title ); ?>">
+    <meta property="og:description" content="<?php echo $description; ?>">
+    <meta property="og:url" content="<?php echo esc_url( $page_url ); ?>">
+    <meta property="og:image" content="<?php echo esc_url( $og_image ); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo esc_attr( $page_title ); ?>">
+    <meta name="twitter:description" content="<?php echo $description; ?>">
+    <meta name="twitter:image" content="<?php echo esc_url( $og_image ); ?>">
+    <?php
+
+    // --- JSON-LD: Organization (site-wide, only on homepage to avoid duplication) ---
+    if ( is_front_page() ) {
+        $organization_schema = [
+            '@context' => 'https://schema.org',
+            '@type'    => 'PerformingArtsGroup', // valid schema.org type, more specific than plain Organization
+            'name'     => 'Vermont Suitcase Company',
+            'url'      => home_url( '/' ),
+            'logo'     => $default_image,
+            // TODO: add real values below, or remove lines you don't want to disclose publicly
+            'sameAs'   => [
+                'https://www.facebook.com/vermontsuitcasecompany',
+                'https://www.instagram.com/vermonsuitcasecompany',
+            ],
+        ];
+        echo '<script type="application/ld+json">' . wp_json_encode( $organization_schema ) . '</script>' . "\n";
+    }
+
+    // --- JSON-LD: Event (on singular 'performance' post type) ---
+    if ( is_singular( 'performance' ) ) {
+        $date    = get_field( 'date' );    // TODO: confirm ACF return format (e.g. Ymd for date_picker)
+        $time    = get_field( 'time' );    // TODO: confirm ACF return format (e.g. H:i for time_picker)
+        $venue   = get_field( 'venue' );
+        $address = get_field( 'address' );
+
+        if ( $date ) {
+            // Attempt to combine date + time into ISO 8601 — adjust format strings to match your actual ACF output
+		$datetime_string = trim( $date . ' ' . $time );
+		$dt = new DateTime( $datetime_string, new DateTimeZone( 'America/New_York' ) );
+            $iso_datetime    = $dt->format( 'c' );
+
+            $event_schema = [
+                '@context'  => 'https://schema.org',
+                '@type'     => 'TheaterEvent',
+                'name'      => get_the_title(),
+                'startDate' => $iso_datetime,
+                'location'  => [
+                    '@type'   => 'Place',
+                    'name'    => $venue ? $venue : 'TODO: default venue name',
+                    'address' => $address ? $address : 'TODO: default address',
+                ],
+                'performer' => [
+                    '@type' => 'PerformingArtsGroup',
+                    'name'  => 'Vermont Suitcase Company',
+                ],
+                'url' => get_permalink(),
+                // TODO: add 'image' => URL of a performance-specific image if available
+                // TODO: add 'offers' with ticket URL/price if you sell tickets online
+            ];
+            echo '<script type="application/ld+json">' . wp_json_encode( $event_schema ) . '</script>' . "\n";
+        }
+    }
+}
+
 add_filter( 'xmlrpc_enabled', '__return_false' );
 
 ?>
