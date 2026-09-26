@@ -39,6 +39,52 @@
 
 
 </footer>
+
+<!--
+  Cookie consent banner. Sits above the fixed .site-footer (see
+  cookie-consent.css — bottom offset accounts for the footer's 80px
+  height). Accept/Reject are styled with equal visual weight and there
+  are no pre-checked boxes, per your privacy policy draft. The site
+  stays fully usable either way — this never blocks page content.
+
+  window.vscConsent is defined in header.php, before wp_head(), so
+  that any future wp_head-hooked script (like the Meta Pixel) can
+  check consent before it loads.
+-->
+<div class="cookie-consent-banner" id="cookie-consent-banner">
+  <div class="cookie-consent-content">
+    <p class="cookie-consent-text">
+      We use cookies for site analytics and marketing.
+      <a href="<?php echo esc_url( site_url( '/privacy-policy' ) ); ?>">Learn more in our privacy policy</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="cookie-consent-button cookie-consent-reject" id="cookie-consent-reject">Reject</button>
+      <button type="button" class="cookie-consent-button cookie-consent-accept" id="cookie-consent-accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+    var banner = document.getElementById('cookie-consent-banner');
+    if (!banner || !window.vscConsent) return;
+
+    if (!window.vscConsent.hasDecided()) {
+        banner.classList.add('is-visible');
+    }
+
+    document.getElementById('cookie-consent-accept').addEventListener('click', function () {
+        window.vscConsent.grant();
+        banner.classList.remove('is-visible');
+    });
+
+    document.getElementById('cookie-consent-reject').addEventListener('click', function () {
+        window.vscConsent.deny();
+        banner.classList.remove('is-visible');
+    });
+})();
+</script>
+
 <?php wp_footer(); ?>
 
 </body>

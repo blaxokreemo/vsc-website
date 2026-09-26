@@ -1,0 +1,93 @@
+/* ==========================================================
+   Cookie Consent Banner
+   Save as css/modules/cookie-consent.css and add
+   @import "modules/cookie-consent.css"; to vsc-style.css
+   alongside your other module imports.
+   ========================================================== */
+
+.cookie-consent-banner {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* .site-footer is fixed at bottom:0 with height:80px (footer.css) —
+       sit just above it so nothing overlaps. */
+    bottom: 80px;
+    z-index: 1100;
+    justify-content: center;
+    padding: 12px;
+}
+
+.cookie-consent-banner.is-visible {
+    display: flex;
+}
+
+.cookie-consent-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 700px;
+    width: 100%;
+    background-color: var(--box-color);
+    border: 3px solid black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 16px 20px;
+}
+
+.cookie-consent-text {
+    flex: 1 1 300px;
+    margin: 0;
+    text-align: left;
+    font-size: clamp(0.85rem, calc(0.7rem + 0.4vw), 1.1rem);
+}
+
+.cookie-consent-text a {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+.cookie-consent-actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+}
+
+/* Equal visual weight for both buttons — same size/padding/border,
+   only the fill color differs. Neither is styled as the "default". */
+.cookie-consent-button {
+    padding: 8px 22px;
+    font-size: clamp(0.9rem, calc(0.8rem + 0.3vw), 1.1rem);
+}
+
+.cookie-consent-accept {
+    background-color: var(--primary-color);
+    color: black;
+}
+
+.cookie-consent-reject {
+    background-color: var(--box-color);
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .cookie-consent-banner {
+        padding: 8px;
+    }
+
+    .cookie-consent-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .cookie-consent-text {
+        text-align: center;
+    }
+
+    .cookie-consent-actions {
+        justify-content: center;
+    }
+}
