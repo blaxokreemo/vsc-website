@@ -21,20 +21,18 @@ get_header();
    CONFIG — edit these for each premiere, no HTML editing needed
    ========================================================= */
 $premiere_title        = 'NEW CLOTHES';
-$premiere_tagline       = 'Can you see them?';
 $premiere_logline       = 'Two swindlers trick the Emperor out of his clothes in this theater company\'s take on the classic Hans Christian Andersen tale.';
 
-$premiere_youtube_id    = 'HmrumR66-4o'; // just the video ID, not the full URL
-$premiere_watch_url     = 'https://www.youtube.com/watch?v=' . $premiere_youtube_id; // premiere/watch page link for the CTA
+$premiere_trailer_youtube_id = 'HmrumR66-4o'; // trailer clip — this is what plays in the hero facade
+$premiere_watch_url          = 'https://youtu.be/56l2Sx5Zn6s'; // the actual scheduled Premiere page (full film) — CTA button target only, never embedded
 
 // Your custom trailer thumbnail — save it into your theme's /images/ folder
 // and update the filename below. Must be self-hosted (not linked from
 // YouTube's own CDN) since img-src in your nginx CSP only allows 'self'.
 $premiere_thumbnail_url = get_theme_file_uri( '/images/premiere-trailer-thumbnail.jpg' );
 
-
-$premiere_date_display  = 'OCTOBER 15, 2026 AT 8:00 PM EST';
-$premiere_date_iso      = '2026-10-15T20:00:00-05:00'; // for the countdown-friendly datetime attribute
+$premiere_date_display  = 'OCTOBER 15, 2026 AT 7:30 PM ET';
+$premiere_date_iso      = '2026-10-15T19:30:00-04:00'; // EDT (Eastern Daylight Time — October is still DST, not EST)
 
 $premiere_synopsis      = 'Two button peddlers try to swindle the Emperor out of his money (and his clothes) by posing as famous fashion designers. Filmed in one apartment in Brattleboro, VT over seven days, New Clothes is the first feature film by touring theater group the Vermont Suitcase Company.';
 
@@ -52,16 +50,16 @@ $premiere_credits = array(
 ?>
 
 <div class="content-narrow container-no-flex full-page-height premiere-page">
- 
+
   <!-- HERO -->
   <div class="content-box premiere-hero">
     <h1 class="tour-title premiere-film-title"><?php echo esc_html( $premiere_title ); ?></h1>
- 
+
     <div class="premiere-release-badge">
       Streaming Free on YouTube<br>
       <span class="premiere-release-date"><?php echo esc_html( $premiere_date_display ); ?></span>
     </div>
- 
+
     <div class="premiere-video-frame">
       <div class="video-wrapper">
         <!--
@@ -85,7 +83,7 @@ $premiere_credits = array(
         </a>
       </div>
     </div>
- 
+
     <script>
     (function () {
       var facade = document.getElementById('premiere-video-facade');
@@ -93,7 +91,7 @@ $premiere_credits = array(
       facade.addEventListener('click', function (e) {
         e.preventDefault();
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/<?php echo esc_js( $premiere_youtube_id ); ?>?autoplay=1';
+        iframe.src = 'https://www.youtube-nocookie.com/embed/<?php echo esc_js( $premiere_trailer_youtube_id ); ?>?autoplay=1';
         iframe.title = '<?php echo esc_js( $premiere_title ); ?> \u2014 Official Trailer';
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
@@ -103,32 +101,25 @@ $premiere_credits = array(
       });
     })();
     </script>
- 
+
     <p class="premiere-logline text-secondary"><?php echo esc_html( $premiere_logline ); ?></p>
- 
+
     <a
       href="<?php echo esc_url( $premiere_watch_url ); ?>"
       id="yt-premiere-btn"
       class="premiere-cta"
       target="_blank"
       rel="noopener">
-      Set Reminder on YouTube
+      <i class="fa-solid fa-bell inline-icon"></i>Set Reminder on YouTube
     </a>
-    <!--
-      Meta Pixel note: don't wire a fbq('track', ...) call to this button yet.
-      Per your own todo list, the Pixel must sit behind the cookie consent
-      banner and not fire unconditionally. Once that banner exists, add an
-      onclick handler here (or a delegated listener in vsc_js) that checks
-      consent state before calling fbq().
-    -->
   </div>
- 
+
   <!-- DETAILS & SYNOPSIS -->
   <div class="content-box premiere-details">
     <h2 class="tour-header premiere-section-heading">Synopsis</h2>
     <p class="premiere-synopsis-text"><?php echo esc_html( $premiere_synopsis ); ?></p>
- 
-    <h2 class="tour-header premiere-section-heading">Cast &amp; Crew</h2>
+
+    <h2 class="tour-header premiere-section-heading">Cast</h2>
     <div class="premiere-cast-grid">
       <?php foreach ( $premiere_credits as $person ) : ?>
         <div class="premiere-cast-card">
@@ -147,36 +138,38 @@ $premiere_credits = array(
       <?php endforeach; ?>
     </div>
   </div>
- 
+
   <!-- EMAIL CAPTURE -->
   <div class="content-box premiere-signup">
     <h2 class="tour-header premiere-section-heading">Get a 1-Hour Launch Alert</h2>
-    <p class="text-secondary premiere-signup-subtext">One email, sent an hour before we go live. No spam, unsubscribe any time.</p>
- 
+    <p class="text-secondary premiere-signup-subtext">One email, sent an hour before we go live — plus you'll be entered to win one of three Vermont Suitcase Company t-shirts. No spam, unsubscribe any time.</p>
+
     <form id="premiere-alert-form" class="premiere-alert-form" method="post" action="<?php echo esc_url( site_url( '/subscribed' ) ); ?>">
       <?php wp_nonce_field( 'contact_form_submit', 'contact_nonce' ); ?>
       <!--
-        Reuses your existing mailing-list-submit handler in functions.php —
-        no backend changes needed. It already does nonce verification,
-        the honeypot check, and the Listmonk POST.
+        Submits to premiere-alert-submit, its own branch in
+        contact_form() (functions.php) — separate from the footer's
+        mailing-list-submit handler, and posts to its own Listmonk
+        list rather than the main newsletter list.
       -->
       <input type="hidden" name="form-name" value="Premiere Alert Signup">
- 
+
       <div class="popup-form-element premiere-email-field">
         <label for="premiere-email" class="screen-reader-text">Email</label>
         <input type="email" id="premiere-email" name="form-email" placeholder="you@email.com" required>
       </div>
- 
+
       <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
         <label for="form-website">Website</label>
         <input type="text" name="form-website" id="form-website" tabindex="-1" autocomplete="off">
       </div>
- 
-      <button type="submit" name="mailing-list-submit" class="premiere-email-submit">Notify Me</button>
+
+      <button type="submit" name="premiere-alert-submit" class="premiere-email-submit">Notify Me</button>
     </form>
+
+    <p class="premiere-raffle-disclosure">No purchase necessary. Open to US residents 18+. Winners will be selected at random and contacted by email after the premiere.</p>
   </div>
- 
+
 </div>
- 
+
 <?php get_footer(); ?>
- 

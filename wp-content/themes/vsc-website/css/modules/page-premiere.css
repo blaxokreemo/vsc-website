@@ -177,6 +177,11 @@
     text-align: center;
     max-width: 750px;
     margin: 0 auto;
+    background-color: var(--secondary-color);
+    color: black;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Cast/crew: simple stacked cards, styled after the .person-item cards
@@ -246,10 +251,24 @@
     gap: 10px;
 }
 
+.premiere-signup .premiere-section-heading {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
 .premiere-signup-subtext {
     max-width: 500px;
     text-align: center;
     margin: 0 0 8px 0;
+}
+
+.premiere-raffle-disclosure {
+    max-width: 500px;
+    margin: 4px 0 0 0;
+    text-align: center;
+    font-size: clamp(0.7rem, calc(0.6rem + 0.2vw), 0.85rem);
+    opacity: 0.75;
 }
 
 .premiere-alert-form {
