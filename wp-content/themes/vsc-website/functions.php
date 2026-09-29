@@ -162,7 +162,48 @@ function contact_form() {
         ];
         $context  = stream_context_create( $options );
         $response = file_get_contents( $url, false, $context );
+    } elseif ( isset( $_POST['premiere-alert-submit'] ) ) {
+        // Verify nonce
+        if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( $_POST['contact_nonce'], 'contact_form_submit' ) ) {
+            return;
+        }
+        $premiere_alert_name  = sanitize_text_field( $_POST['form-name'] );
+        $premiere_alert_email = sanitize_text_field( $_POST['form-email'] );
+    
+        // Spam check — same honeypot/name-filter logic as your other forms
+        if ( vsc_is_spam_submission( $premiere_alert_name ) ) {
+            error_log( 'Premiere alert submission blocked as spam: ' . $premiere_alert_name );
+            return;
+        }
+    
+        $to      = 'contactsubmissions@vermontsuitcasecompany.com';
+        $subject = 'New Premiere Alert Signup (Raffle Entry)';
+        $message  = 'Someone signed up for the premiere launch alert / raffle.' . "\n\n";
+        $message .= 'Name: ' . $premiere_alert_name . "\n";
+        $message .= 'Email: ' . $premiere_alert_email . "\n";
+        $mail_sent = wp_mail( $to, $subject, $message );
+        if ( ! $mail_sent ) {
+            error_log( 'wp_mail failed on premiere alert form submission' );
+        }
+    
+        // Separate list from the main newsletter (list 2) — Premiere Launch Alert list
+        $url  = 'https://newsletter.vermontsuitcasecompany.com/subscription/form';
+        $data = [
+            'email' => $premiere_alert_email,
+            'name'  => $premiere_alert_name,
+            'l'     => '8a24414b-3efa-4e93-a222-b462ed35dd6b',
+        ];
+        $options = [
+            'http' => [
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'content' => http_build_query( $data ),
+            ],
+        ];
+        $context  = stream_context_create( $options );
+        $response = file_get_contents( $url, false, $context );
     }
+
 }
 add_action('wp_head', 'contact_form');
 
