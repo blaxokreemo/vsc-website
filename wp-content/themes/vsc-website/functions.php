@@ -201,7 +201,15 @@ function contact_form() {
             ],
         ];
         $context  = stream_context_create( $options );
-        $response = file_get_contents( $url, false, $context );
+	$response = file_get_contents( $url, false, $context );
+// Log what Listmonk said back. Deliberately does not log the
+    // subscriber's email or name, only the status line and reply body.
+    	$status_line = isset( $http_response_header[0] ) ? $http_response_header[0] : 'no response (request failed)';
+    	if ( $response === false || strpos( $status_line, ' 200' ) === false ) {
+        	error_log( 'Premiere alert Listmonk POST failed: ' . $status_line . ' | body: ' . substr( (string) $response, 0, 300 ) );
+    	} else {
+        error_log( 'Premiere alert Listmonk POST ok: ' . $status_line );
+	}
     }
 
 }
