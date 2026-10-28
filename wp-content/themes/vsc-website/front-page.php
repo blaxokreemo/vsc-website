@@ -55,10 +55,10 @@ $premiere_credits = array(
   <div class="content-box premiere-hero">
     <h1 class="tour-title premiere-film-title"><?php echo esc_html( $premiere_title ); ?></h1>
 
-    <div class="premiere-release-badge">
+    <a href="<?php echo esc_url( $premiere_watch_url ); ?>"><div class="premiere-release-badge">
       Streaming Free on YouTube<br>
       <span class="premiere-release-date"><?php echo esc_html( $premiere_date_display ); ?></span>
-    </div>
+    </div></a>
 
     <div class="premiere-video-frame">
       <div class="video-wrapper">
@@ -141,10 +141,10 @@ $premiere_credits = array(
 
   <!-- EMAIL CAPTURE -->
   <div class="content-box premiere-signup">
-    <h2 class="tour-header premiere-section-heading">Get a 1-Hour Launch Alert</h2>
-    <p class="text-secondary premiere-signup-subtext">One email, sent an hour before we go live — plus you'll be entered to win one of three Vermont Suitcase Company t-shirts. No spam, unsubscribe any time.</p>
+    <h2 class="tour-header premiere-section-heading">Win a Vermont Suitcase Company T-Shirt</h2>
+    <p class="text-secondary premiere-signup-subtext">Enter your name and email for a chance to win a t-shirt. During the 2-minute countdown, we'll announce winners and if we call your name and you're present, we'll send you a Vermont Suitcase Company t-shirt! You'll also receive future updates about Vermont Suitcase Company, but you can unsubscribe at any time, right after you get your t-shirt if you want.</p>
 
-    <form id="premiere-alert-form" class="premiere-alert-form" method="post" action="<?php echo esc_url( site_url( '/subscribed' ) ); ?>">
+    <form id="premiere-alert-form" class="premiere-alert-form" method="post" action="<?php echo esc_url( site_url( '/premiere-thanks' ) ); ?>">
       <?php wp_nonce_field( 'contact_form_submit', 'contact_nonce' ); ?>
       <!--
         Submits to premiere-alert-submit, its own branch in
@@ -152,7 +152,11 @@ $premiere_credits = array(
         mailing-list-submit handler, and posts to its own Listmonk
         list rather than the main newsletter list.
       -->
-      <input type="hidden" name="form-name" value="Premiere Alert Signup">
+      <div class="popup-form-element premiere-email-field">
+        <label for="premiere-name" class="screen-reader-text">Name</label>
+        <input type="text" id="premiere-name" name="form-name"
+         placeholder="Your name" autocomplete="name" required>
+      </div>
 
       <div class="popup-form-element premiere-email-field">
         <label for="premiere-email" class="screen-reader-text">Email</label>
@@ -167,7 +171,7 @@ $premiere_credits = array(
       <button type="submit" name="premiere-alert-submit" class="premiere-email-submit">Notify Me</button>
     </form>
 
-    <p class="premiere-raffle-disclosure">No purchase necessary. Open to US residents 18+. Winners will be selected at random and contacted by email after the premiere.</p>
+    <p class="premiere-raffle-disclosure">No purchase necessary. Open to US residents 18+. Must be present at the premiere to win. Winners will be selected at random and contacted by email after the premiere.</p>
   </div>
 
 </div>

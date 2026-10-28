@@ -271,6 +271,30 @@
     opacity: 0.75;
 }
 
+/* ---------- Thank-you page (page-premiere-thanks.php) ---------- */
+
+.premiere-thanks-panel {
+    max-width: 650px;
+    background-color: var(--secondary-color);
+    color: black;
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.premiere-thanks-panel p + p {
+    margin-top: 12px;
+}
+
+.premiere-thanks-back {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.premiere-thanks-back:hover {
+    color: white;
+}
+
 .premiere-alert-form {
     display: flex;
     flex-direction: row;
@@ -326,4 +350,4 @@
     position: absolute;
     left: -9999px;
     top: -9999px;
-}
+}  
